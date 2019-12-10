@@ -1,0 +1,14 @@
+/* 
+  InfoPlist.strings
+  minlePay
+
+  Created by JP on 2018/1/15.
+  Copyright © 2018年 Jiangsu Minle Data Service Co., Ltd. All rights reserved.
+*/
+
+CFBundleDisplayName = "民乐钱包";
+CFBundleName = "民乐钱包";
+NSCameraUsageDescription = "我们需要使用您的相机，用来上传认证图片或头像！";
+NSContactsUsageDescription = "民乐钱包将使用您的通讯录数据，只用来显示在电话模块，以便您快速拨打您的手机联系人，不会保存您的通讯内容，亦不会用作它用！";
+NSMicrophoneUsageDescription = "我们需要使用您的麦克风，用来播放交易金额！";
+NSPhotoLibraryUsageDescription = "我们需要使用您的相册，用来上传认证图片或头像！";

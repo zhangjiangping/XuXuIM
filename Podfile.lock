@@ -1,0 +1,70 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Bugly (2.4.8)
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
+  - IQKeyboardManager (4.0.9)
+  - Masonry (0.6.4)
+  - pop (1.0.9)
+  - ReactiveCocoa (2.3.1):
+    - ReactiveCocoa/UI (= 2.3.1)
+  - ReactiveCocoa/Core (2.3.1):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.3.1)
+  - ReactiveCocoa/UI (2.3.1):
+    - ReactiveCocoa/Core
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SVPullToRefresh (0.4.1)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - Bugly
+  - ChameleonFramework
+  - FMDB
+  - IQKeyboardManager
+  - Masonry (~> 0.6.4)
+  - pop
+  - ReactiveCocoa (= 2.3.1)
+  - SDWebImage (~> 3.8)
+  - SVPullToRefresh (~> 0.4.1)
+  - YYKit (~> 1.0.9)
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bugly: da3c02408c14838d498429320545a8e439392978
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
+  ReactiveCocoa: 3fe9b233ca6db810e86681b5749488564c1179a1
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 0a3e6a7fb42bffc7438e6a521a5f0fe33e1cf47b
+
+COCOAPODS: 1.2.1

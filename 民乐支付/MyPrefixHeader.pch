@@ -1,0 +1,285 @@
+//
+//  MyPrefixHeader.pch
+//  民乐支付
+//
+//  Created by SZVETRON-iMAC on 16/10/13.
+//  Copyright © 2016年 SZVETRON-iMAC. All rights reserved.
+//
+
+#ifndef MyPrefixHeader_pch
+#define MyPrefixHeader_pch
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <YYKit/YYKit.h>
+#import "MCNetWorking.h"
+#import "ColorsUtil.h"
+#import "CommenUtil.h"
+#import "AppDelegate.h"
+#import "MBProgressHUD+Alert.h"
+#import "MLMyNavigationView.h"
+
+#import "VETUserManager.h"
+#import "VETCommonDefineMacro.h"
+#import "masonry.h"
+#import "UIView+Extension.h"
+#import "VETNotificationCommonDefine.h"
+#import "VETVoipManager.h"
+
+/*
+ 宽，高
+ */
+
+#define widthss CGRectGetWidth(self.view.frame)
+#define heightss CGRectGetHeight(self.view.frame)
+
+#define widths CGRectGetWidth(self.frame)
+#define heights CGRectGetHeight(self.frame)
+
+#define cellWidth CGRectGetWidth(self.contentView.frame)
+#define cellHeight CGRectGetHeight(self.contentView.frame)
+
+#define screenWidth [UIScreen mainScreen].bounds.size.width
+#define screenHeight [UIScreen mainScreen].bounds.size.height
+
+#define  adjustsScrollViewInsets_NO(scrollView,vc)\
+do { \
+_Pragma("clang diagnostic push") \
+_Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
+if ([UIScrollView instancesRespondToSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:")]) {\
+[scrollView   performSelector:NSSelectorFromString(@"setContentInsetAdjustmentBehavior:") withObject:@(2)];\
+} else {\
+vc.automaticallyAdjustsScrollViewInsets = NO;\
+}\
+_Pragma("clang diagnostic pop") \
+} while (0)
+
+/*
+ 颜色，字体
+ */
+#define FT(x) [UIFont systemFontOfSize:x]
+#define RGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
+#define LayerRGB(r, g, b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1].CGColor
+#define blueRGB [UIColor colorWithRed:2.0/255.0 green:138.0/255.0 blue:218.0/255.0 alpha:1]
+#define OnePointHeight  1/[[UIScreen mainScreen] scale]
+
+//获取系统版本
+#define  IOS_VERSION  [[[UIDevice currentDevice] systemVersion] floatValue]
+//获取app小版本号
+#define  minlePay_Version  [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"]
+//获取app大版本号
+#define  minlePay_AppVersion [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"]
+//定义改宏变量用于全局可以访问该类
+#define  SharedApp ((AppDelegate *)[[UIApplication sharedApplication] delegate])
+
+
+/*
+ NSUserDefaults记录Key值
+ */
+
+//登录有效时间历史记录
+#define  HistoryLoginTime @"HistoryLoginTime"
+//上一个版本号保存
+#define  HistoryVersion   @"HistoryVersion"
+//保存极光推送获取的唯一注册标识ID
+#define  JPushRegisterID  @"JPushRegisterID"
+//微信的access_token的记录以及用来取出的key值
+#define  WX_ACCESS_TOKEN  @"access_token"
+//微信的open_id的记录以及用来取出的key值
+#define  WX_OPEN_ID       @"openid"
+//当前用户保存的国家区号
+#define  Country_Code     @"Country_Code"
+//voip账号名
+#define  VOIP_USERNAME    @"VOIP_USERNAME"
+//voip密码
+#define  VOIP_PASSWORD    @"VOIP_PASSWORD"  
+
+
+/*
+ 通知部分
+ */
+
+//扫码支付标识
+#define  MLSaoMa @"saoma"
+//接受极光推送过来的消息通知名
+#define  JPushDidReceiveMessage  @"DidReceiveJPushNotificationName"
+//接受注册回调的通知（给键盘界面的）
+#define  VoipAccountRegisterStatusDialpadNotification @"VoipAccountRegisterStatusDialpadNotification"
+
+/*
+ 接口部分
+ */
+
+#define  MLJK  @"https://www.jsmlpay.com/"
+#define  MLMLJK  @"https://www.jsmlpay.com"
+
+//#define  MLJK  @"http://10.68.100.101/"
+//#define  MLMLJK  @"http://10.68.100.101"
+
+
+//登录接口
+//#define  LandingURL                MLJK@"payapi.php/Home/Api/login"
+#define  LandingURL                MLJK@"payapi.php/Home/V2/login"
+//注册--发送短信
+#define  register_sendURL          MLJK@"payapi.php/Home/Api/register_send"
+//注册--验证手机
+#define  check_regcodeURL          MLJK@"payapi.php/Home/Api/check_regcode"
+//忘记密码验证短信
+#define  forgetPassURL             MLJK@"payapi.php/Home/Api/forget_send"
+//忘记密码验证手机
+#define  passPhoneURL              MLJK@"payapi.php/Home/Api/check_forget_code"
+//修改密码
+#define  changePassURL             MLJK@"payapi.php/Home/Api/forget_update_pass"
+//发送短信接口----登录后修改密码
+#define  message_sendURL           MLJK@"payapi.php/Home/Api/message_send"
+//修改密码----登录后修改密码
+#define  loginlater_update_passURL MLJK@"payapi.php/Home/Api/loginlater_update_pass"
+//退出登录
+#define  outURL                    MLJK@"payapi.php/Home/Api/out"
+//首页金额接口
+#define  moneyURL                  MLJK@"payapi.php/Home/ApiVone/money"
+//我的资产
+#define  myZiChanURL               MLJK@"payapi.php/Home/Api/my_assets"
+//账户详情
+#define  zhanghuURL                MLJK@"payapi.php/Home/Api/account_details"
+//我的代理
+#define  dailiURL                  MLJK@"payapi.php/Home/Api/my_agent"
+//我的头像接口
+#define  re_head_picURL            MLJK@"payapi.php/Home/Api/re_head_pic"
+//修改用户名
+#define  changeNameURL             MLJK@"payapi.php/Home/Api/update_name"
+//修改性别
+#define  update_sexURL             MLJK@"payapi.php/Home/Api/update_sex"
+//修改头像
+#define  update_picURL             MLJK@"payapi.php/Home/Api/update_pic"
+//个人信息
+#define  infomationURL             MLJK@"payapi.php/Home/Api/infomation"
+//账户结算
+#define  account_settlementURL     MLJK@"payapi.php/Home/Api/account_settlement"
+//我的资产
+#define  my_assetsURL              MLJK@"payapi.php/Home/Api/my_assets"
+//实名认证
+#define  add_nameAuthenURL         MLJK@"payapi.php/Home/Api/add_authen"
+//设置支付密码接口----设置支付密码
+#define  pay_passURL               MLJK@"payapi.php/Home/Api/pay_pass"
+//登录后手机号码获取验证码
+#define  update_phone_sendURL      MLJK@"payapi.php/Home/Api/update_phone_send"
+//登录后修改手机号码----下一步
+#define  check_forget_codeURL      MLJK@"payapi.php/Home/Api/check_forget_code"
+//修改手机号码接口----设置手机号码
+#define  update_phoneURL           MLJK@"payapi.php/Home/Api/update_phone"
+//认证状态
+#define  authen_statusURL          MLJK@"payapi.php/Home/Api/authen_status"
+//通知中心接口
+#define  info_allURL               MLJK@"payapi.php/Home/Api/info_all"
+//新闻列表接口
+#define  news_listURL              MLJK@"payapi.php/Home/Api/news_list"
+//新闻详情接口
+#define  detail_newURL             MLJK@"payapi.php/Home/Api/detail_new"
+//公告列表接口
+#define  notice_listURL            MLJK@"payapi.php/Home/Api/notice_list"
+//公告详情接口
+#define  detail_noticeURL          MLJK@"payapi.php/Home/Api/detail_notice"
+//消息列表接口
+#define  message_listURL           MLJK@"payapi.php/Home/Api/message_list"
+//消息详情接口
+#define  detail_messageURL         MLJK@"payapi.php/Home/Api/detail_message"
+//账单接口
+#define  billing_recordURL         MLJK@"payapi.php/Home/ApiVone/billing_record"
+//提现显示接口
+#define  withdrawalsURL            MLJK@"payapi.php/Home/Api/withdrawals"
+//提现提交接口
+#define  withdrawals_doURL         MLJK@"payapi.php/Home/Api/withdrawals_do"
+//判断是否实名认证接口
+#define  check_actauthenURL        MLJK@"payapi.php/Home/Api/check_actauthen"
+//收款接口
+#define  onlinePayURl              MLJK@"payapi.php/Home/Api/onlinePay"
+//老版本收款接口
+#define  wechat_payURl             MLJK@"payapi.php/Home/Api/wechat_pay"
+//查询支付状态接口
+#define  checkURL                  MLJK@"payapi.php/Home/Api/check"
+//T0查询支付状态接口
+#define  t0checkURL                MLJK@"payapi.php/Home/HFT/check"
+//订单成功详情接口
+#define  order_detailURL           MLJK@"payapi.php/Home/Api/order_detail"
+//全部订单接口
+#define  auditURL                  MLJK@"payapi.php/Home/Api/audit"
+//消息删除接口
+#define  del_messageURL            MLJK@"payapi.php/Home/Api/del_message"
+//清空消息接口
+#define  clearMessageURL           MLJK@"payapi.php/Home/Api/clearMessage"
+//版本更新接口
+//#define  app_versionURL            MLJK@"payapi.php/Home/Api/app_version"
+//注册账号
+#define  registerURL               MLJK@"payapi.php/Home/ApiVone/register"
+//银行卡认证接口
+#define  autoAddAuthen_yhk_URL     MLJK@"payapi.php/Home/ApiVone/autoAddAuthen"
+//资质认证接口
+#define  peopleAuthenURL           MLJK@"payapi.php/Home/ApiVone/addAuthen"
+//电子账户判断接口
+#define  cmbc_accountURL           MLJK@"payapi.php/Home/ApiVone/cmbc_account"
+//绑定接口
+#define  update_accountURL         MLJK@"payapi.php/Home/ApiVone/update_account"
+//查询二维码接口
+#define  selectQRURL               MLJK@"payapi.php/Home/ApiVone/selectQR"
+//H5通知协议接口
+#define  ApiH5URL                  MLJK@"payapi.php/Home/ApiVone/ApiH5/type/"
+//民生二维码接口
+#define  ele_accountURL            MLJK@"payapi.php/Home/ApiVone/ele_account"
+//查询联行号接口
+#define  getBankNumberURL          MLJK@"payapi.php/Home/ApiVone/getBankNumber"
+//获取银行列表接口
+#define  getBankURL                MLJK@"payapi.php/Home/ApiVone/getBankVone"
+//查询联行号接口（Vone）
+#define  getBankNumberVoneURL      MLJK@"payapi.php/Home/ApiVone/getBankNumberVone"
+//商户号数据接口
+#define  partsListURL              MLJK@"payapi.php/Home/ApiVone/partsList"
+//切换商户号接口
+#define  switchMerchantURL         MLJK@"payapi.php/Home/ApiVone/switchMerchant"
+//开启切换商户号接口
+#define  mchntTypeURL              MLJK@"payapi.php/Home/ApiVone/mchntType"
+//分润列表接口
+#define  commissionListURL         MLJK@"payapi.php/Home/ApiVone/commissionList"
+//银行卡修改认证接口
+#define  addAutoBankURL            MLJK@"payapi.php/Home/ApiVone/addAutoBank"
+//银行卡修改记录接口
+#define  bankUpdateListURL         MLJK@"payapi.php/Home/ApiVone/bankUpdateList"
+//扫码收款接口
+#define  reverse_scanURL           MLJK@"payapi.php/Home/Cmbc/reverse_scan"
+//扫码收款订单查询接口
+#define  reverse_scan_checkURL     MLJK@"payapi.php/Home/Cmbc/reverse_scan_check"
+//国际刷卡 (网页)
+#define  jspURL                    @"https://www.paydollar.com/b2c2/eng/payment/payForm.jsp"
+//资质认证获取实名认证返回数据接口
+#define  getRealNameURL            MLJK@"payapi.php/Home/ApiVone/getRealName"
+//openID检测绑定接口
+#define  detectionOpenIDURL        MLJK@"payapi.php/Home/V2/checkWeChat"
+//openID列表
+#define  openiListURL              MLJK@"payapi.php/Home/ApiVone/getWeChatOpenid"
+//绑定新微信账号接口
+#define  bindWeChatsURL            MLJK@"payapi.php/Home/ApiVone/bindWeChats"
+
+//查询VOIP用户余额接口
+#define  checkBalanceURL           MLJK@"payapi.php/Home/V2/checkBalance"
+
+
+//无卡注册界面获取数据接口 (传1_1是注册获取数据，传1_2是无卡下单获取数据，传1_3是获取开卡列表数据)
+#define  getUserCardInfoURL        MLJK@"payapi.php/Home/V2/getUserCardInfo"
+//注册无卡接口
+#define  cardPayOpenURL            MLJK@"payapi.php/Home/XianYu/cardPayOpen"
+//判断是否注册无卡接口
+#define  checkRegisterURL          MLJK@"payapi.php/Home/V2/checkRegister"
+//注册无卡后跳转银行页面注册接口
+#define  regJumpURL                MLJK@"payapi.php/Home/XianYu/regJump"
+//无卡支付下单接口(type传2时就是重新发送验证码接口)
+#define  cardPayURL                MLJK@"payapi.php/Home/XianYu/cardPay"
+//确认支付接口
+#define  cardPayConfirmURL         MLJK@"payapi.php/Home/XianYu/cardPayConfirm"
+
+#endif /* MyPrefixHeader_pch */
+
+
+
+
+

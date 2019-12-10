@@ -1,0 +1,144 @@
+/* 
+  Localizable.strings
+  VETEphone
+
+  Created by Liu Yang on 11/04/2017.
+  Copyright © 2017 Vetron. All rights reserved.
+*/
+
+/* Common */
+"Done" = "完成";
+"Edit" = "編輯";
+"Cancle" = "取消";
+"Add" = "新增";
+"Confirm" = "確認";
+
+/* History */
+"History" = "歷史記錄";
+
+"All" = "所有通話";
+"Missed" = "未接來電";
+"Delete All" = "清空";
+"Incoming" = "來電";
+"Outgoing" = "撥出";
+
+"Monday" = "星期一";
+"Tuesday" = "星期二";
+"Wednesday" = "星期三";
+"Thursday" = "星期四";
+"Friday" = "星期五";
+"Saturday" = "星期六";
+"Sunday" = "星期七";
+"AM" = "上午";
+"PM" = "下午";
+"Yesterday" = "昨天";
+
+"No Record" = "沒有記錄";
+
+/* Contacts */
+"Contacts" = "通訊錄";
+"Search" = "搜索";
+
+// Create New Contact
+"New Contact" = "新增聯繫人";
+"First name" = "姓";
+"Last name" = "名";
+"home" = "住宅";
+"work" = "工作";
+"iPhone" = "iPhone";
+"mobile" = "手機";
+"main" = "主要";
+"home fax" = "住宅傳真";
+"work fax" = "工作傳真";
+"pager" = "傳呼";
+"other" = "其它";
+"Label" = "標籤";
+"Phone" = "電話";
+"add phone" = "添加電話";
+
+"Favorites" = "收藏";
+
+// Contacts Detail
+"Rates" = "價格";
+"CNY/min" = "元/分鐘";
+
+/* Keypad */
+"Keypad" = "撥號盤";
+
+"Select country/region" = "選擇國家/地區";
+"Balance:" = "餘額：";
+"Select country" = "選擇國家";
+
+"Account connected" = "已連接";
+"Account offline" = "離線(即將重連)";
+"Account connecting" = "連接中...";
+"Account invalid" = "帳戶失效";
+"Phone ready" = "準備連接";
+"Account disconnecting" = "正在斷開連接";
+"Network error" = "網路連接失敗";
+"Connect forbid" = "連接被拒絕";
+
+"Invalid phone number" = "無效的手機號";
+"Failed" = "失去連接";
+"Call ended" = "結束通話";
+"Calling" = "呼叫中...";
+"Decline" = "拒絕來電";
+"End call" = "結束通話";
+"Mute" = "靜音";
+"Unmute" = "關閉靜音";
+"Hold" = "保留";
+"UnHold" = "關閉保留";
+
+"Speaker" = "擴音器";
+
+"Calling..." = "呼叫中...";
+"Ringing..." = "響鈴中...";
+"Connecting..." = "連接中...";
+"Connected" = "已連接";
+"Temporarily Unavailable" = "暫時不可用";
+
+"Disconnected" = "已經斷開連接";
+
+"Hide" = "隱藏";
+
+"Network Quality" = "網路質量";
+
+"Excellent" = "非常好";
+"Good" = "好";
+"Average" = "一般";
+"Bad" = "差";
+
+/* Setting */
+"Settings" = "設置";
+
+"Call" = "Call";
+"Audio" = "音頻";
+"Network" = "網路";
+"Notifications" = "通知";
+"FAQ" = "FAQ";
+"About" = "關於我們";
+"Balance" = "餘額";
+"Audio Port" = "音頻埠";
+"Encryption" = "加密";
+
+"Sign out" = "註銷";
+//"Rate Talk2All" = "為 VOIPPHONE 評分";
+"Rate Talk2All" = "為 Talk2All 評分";
+
+"Save changes to the network settings?" = "請確認更改保存到網路設置";
+"New network settings will be applied immediately, account will be reconnected." = "網路設置為馬上生效，帳戶需要重新連接";
+
+/* Login */
+"Login" = "登錄";
+"account" = "帳戶名";
+"password" = "密碼";
+"Register" = "註冊";
+
+/* Alert text */
+"Please Login" = "請登錄";
+"Username and password can't be empty" = "用戶名和密碼不能為空";
+"Setting error" = "設置錯誤";
+
+"Network connection error!" = "網路連接錯誤!";
+"Username or password error!" = "用戶名或密碼錯誤!";
+
